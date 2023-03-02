@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+  
+    body,h1 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('/src/indexmain.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    .logoFont {
+        font-family: satisfy;
+        font-size: xx-large;
+    }
+    .bottomLogo { 
+        font-family: satisfy;
+        font-size: small;
+    }
+    .slogan {
+      margin-top: 5%;
+        font-family: satisfy;
+        font-size: x-large;
+    }
+    .coming {
+        font-family: Raleway;
+    }
+    ::placeholder{
+      font-family: Raleway;
+      color: aliceblue;
+      opacity: 90%;
+    }
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topmiddle w3-padding-large w3-xlarge logoimg">
+    <!-- <img class="logoimg" src="logo.png" alt="Way_Bites.logo" width="100px"> -->
+    <strong class="logoFont">Way Bites</strong>
+  </div>
+  <div class="w3-display-middle">
+    <h1 class=" coming w3-jumbo w3-animate-top">COMING SOON</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p class="slogan w3-center">Way to your next Bite</p>
+    <div class="w3-center">
+    <form class="w3-center form" id="form" method="post">
+        <input class="input_bdr btn btn-outline-light m-2 p-1" type="email" placeholder="Email" name="Email" id="email" required>
+        <button type="submit" name="submit" id="submit" class="btn btn-outline-light">Notify Me!</button>
+    </form>
+  </div>
+  </div>
+  <div class="bottomLogo w3-display-bottomleft w3-padding-large">
+    Created by <a href="https://github.com/sanitheway" target="_blank">Way Bites</a>
+  </div>
+</div>
+
+</body>
+</html>
+
+<script>
+  const form = document.querySelector("#form")
+  const submitButton = document.querySelector("#submit")
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwvgqJZWG74stWM5hRzvAySrpmyfrmUDj2AIFe4-I7wCqSTwNPOX_SYqudVrrIeSpKSAQ/exec'
+
+  form.addEventListener('submit', e => {
+    submitButton.disabled = true
+    e.preventDefault()
+    let requestBody = new FormData(form)
+    fetch(scriptURL, { method: 'POST', body: requestBody})
+      .then(response => {
+         alert('Success!', response)
+         submitButton.disabled = false
+        })
+      .catch(error => {
+      alert('Error!', error.message)
+        submitButton.disabled = false
+
+      }
+      )
+  })
+</script>
