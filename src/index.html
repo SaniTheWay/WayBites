@@ -17,12 +17,16 @@
     body,h1 {font-family: "Raleway", sans-serif}
     body, html {height: 100%}
     .bgimg {
-        background-image: url('indexmain.webp');
+      
+        background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(230, 237, 202, 0.9)), to(rgba(138, 234, 216, 0.9))),  url('indexmain.webp');
         min-height: 100%;
         background-position: center;
         background-size: cover;
+        /* background: linear-gradient(#353231, #eef0f1, ); */
+        background-blend-mode: darken;
     }
     .logoFont {
+      margin-top: 5px;
         font-family: satisfy;
         font-size: xx-large;
     }
@@ -54,7 +58,7 @@
   </div>
   <div class="w3-display-middle">
     <h1 class=" coming w3-jumbo w3-animate-top">COMING SOON</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <hr class="w3-border-yellow" style="margin:auto;width:40%">
     <p class="slogan w3-center">Way to your next Bite</p>
     <div class="w3-center">
     <form class="w3-center form" id="form" method="post">
